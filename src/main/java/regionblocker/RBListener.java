@@ -24,10 +24,12 @@ public class RBListener implements Listener {
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent evt){
-		ProtectedRegion reg = Utils.isPlayerInRegion(evt.getPlayer());
-		if(reg != null){
-			MyRegion my = new MyRegion(reg, evt.getPlayer().getWorld());
-			my.checkLog(evt.getPlayer());
+		if(evt.getPlayer() != null){
+			ProtectedRegion reg = Utils.isPlayerInRegion(evt.getPlayer());
+			if(reg != null){
+				MyRegion my = new MyRegion(reg, evt.getPlayer().getWorld());
+				my.checkLog(evt.getPlayer());
+			}
 		}
 	}
 	

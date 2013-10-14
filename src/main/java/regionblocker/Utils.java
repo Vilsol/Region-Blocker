@@ -33,10 +33,14 @@ public class Utils {
 	public static ProtectedRegion isPlayerInRegion(Player plr) {
 		if(RegionBlocker.plugin.getConfig().isSet("Worlds." + plr.getWorld().getName())){
 			Set<String> regions = RegionBlocker.plugin.getConfig().getConfigurationSection("Worlds." + plr.getWorld().getName() + ".").getKeys(false);
-			for(String s : regions){
-				ProtectedRegion reg = WGBukkit.getRegionManager(plr.getWorld()).getRegion(s);
-				if(reg.contains(plr.getLocation().getBlockX(), plr.getLocation().getBlockY(), plr.getLocation().getBlockZ())){
-					return reg;
+			if(regions != null){
+				if(regions.size() > 0){
+					for(String s : regions){
+						ProtectedRegion reg = WGBukkit.getRegionManager(plr.getWorld()).getRegion(s);
+						if(reg.contains(plr.getLocation().getBlockX(), plr.getLocation().getBlockY(), plr.getLocation().getBlockZ())){
+							return reg;
+						}
+					}
 				}
 			}
 		}
