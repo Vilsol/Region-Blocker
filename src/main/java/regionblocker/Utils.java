@@ -37,8 +37,10 @@ public class Utils {
 				if(regions.size() > 0){
 					for(String s : regions){
 						ProtectedRegion reg = WGBukkit.getRegionManager(plr.getWorld()).getRegion(s);
-						if(reg.contains(plr.getLocation().getBlockX(), plr.getLocation().getBlockY(), plr.getLocation().getBlockZ())){
-							return reg;
+						if(reg != null){
+							if(reg.contains(plr.getLocation().getBlockX(), plr.getLocation().getBlockY(), plr.getLocation().getBlockZ())){
+								return reg;
+							}
 						}
 					}
 				}
