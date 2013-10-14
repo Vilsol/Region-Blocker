@@ -12,5 +12,5 @@ commands:
       aliases: rc
    regionwarpout:
       description: 
-      usage: /<command> <setspawn> <region>
+      usage: /<command> <add/setspawn> <region>
       aliases: rwo
