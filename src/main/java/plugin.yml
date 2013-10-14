@@ -1,0 +1,16 @@
+name: Region Blocker
+main: regionblocker.RegionBlocker
+version: 1.0
+commands:
+   loginblock:
+      description: 
+      usage: /<command> <add/setspawn> <region>
+      aliases: lb 
+   regionclear:
+      description: 
+      usage: /<command> <region/setspawn> [region]
+      aliases: rc
+   regionwarpout:
+      description: 
+      usage: /<command> <setspawn> <region>
+      aliases: rwo
