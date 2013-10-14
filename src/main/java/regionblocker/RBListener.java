@@ -11,10 +11,14 @@ public class RBListener implements Listener {
 
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent evt){
-		ProtectedRegion reg = Utils.isPlayerInRegion(evt.getPlayer());
-		if(reg != null){
-			MyRegion my = new MyRegion(reg, evt.getPlayer().getWorld());
-			my.checkWarp(evt.getPlayer());
+		if(!evt.isCancelled()){
+			if(evt.getPlayer() != null){
+				ProtectedRegion reg = Utils.isPlayerInRegion(evt.getPlayer());
+				if(reg != null){
+					MyRegion my = new MyRegion(reg, evt.getPlayer().getWorld());
+					my.checkWarp(evt.getPlayer());
+				}
+			}
 		}
 	}
 
